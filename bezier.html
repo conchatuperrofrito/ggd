@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Documssent</title>
+  </head>
+  <body>
+    <h3>Lucho Carlos Checcaña Alejandro</h3>
+    <h3>Luisa Nahiely Villarroel Franco</h3>
+    <canvas class="style" id="canvas"></canvas>
+    <style>
+      .style {
+        width: 100wh;
+        height: 100vh;
+        border: 3px solid #1e1c1c;
+      }
+    </style>
+    <script>
+      let canvas = document.getElementById("canvas");
+      let ctx = canvas.getContext("2d");
+      // coordinadas de los puntos de control
+      let x1 = 10;
+      let y1 = 10;
+      //
+      let x2 = 40;
+      let y2 = 10;
+      //
+      let cx1 = 20;
+      let cy1 = 30;
+      //
+      let cx2 = 30;
+      let cy2 = 30;
+      // dibuja una línea desde (x1, y1) hasta (x2, y2)
+      ctx.beginPath();
+      ctx.moveTo(x1, y1);
+      ctx.lineTo(x2, y2);
+      ctx.strokeStyle = "black";
+      ctx.stroke();
+      // dibuja una curva de Bezier
+      ctx.beginPath();
+      ctx.moveTo(x1, y1);
+      ctx.bezierCurveTo(cx1, cy1, cx2, cy2, x2, y2);
+      ctx.strokeStyle = "red";
+      ctx.stroke();
+    </script>
+  </body>
+</html>

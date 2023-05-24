@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" media="all" href="css/reset.css" />
+    <!-- reset css -->
+    <script
+      type="text/javascript"
+      src="http://code.jquery.com/jquery.min.js"
+    ></script>
+
+    <style>
+      body {
+        background-color: ivory;
+      }
+      canvas {
+        border: 1px solid red;
+      }
+    </style>
+
+    <script>
+      $(function () {
+        var canvas = document.getElementById("canvas");
+        var ctx = canvas.getContext("2d");
+        ctx.strokeStyle = "#006400";
+        ctx.fillStyle = "#6ab150";
+        var startX = 50;
+        var startY = 80;
+
+        /**/
+        var X = canvas.width / 2;
+        var Y = canvas.height / 2;
+        var r = 75;
+        /* */
+
+        // draw an unrotated reference rect
+        ctx.beginPath();
+        // ctx.rect(startX, startY, 100, 20);
+
+        ctx.arc(X, Y, r, 0, 2 * Math.PI);
+        // ctx.fillStyle = "blue";
+        ctx.fill();
+        for (let index = 0; index < 28; index++) {
+          drawRotatedRect(startX, startY, 100, 20, 45 + index * 10);
+        }
+
+        // drawRotatedRect(startX, startY, 100, 20, 45);
+        // drawRotatedRect(startX, startY, 100, 20, 60);
+        // drawRotatedRect(startX, startY, 100, 20, 80);
+        // drawRotatedRect(startX, startY, 100, 20, 100);
+        // drawRotatedRect(startX, startY, 100, 20, 120);
+        // drawRotatedRect(startX, startY, 100, 20, 140);
+        // drawRotatedRect(startX, startY, 100, 20, 160);
+
+        function drawRotatedRect(x, y, width, height, degrees) {
+          // first save the untranslated/unrotated context
+          ctx.save();
+
+          ctx.beginPath();
+          // move the rotation point to the center of the rect
+          ctx.translate(x + width / 2, y + height / 2);
+          // rotate the rect
+          ctx.rotate((degrees * Math.PI) / 180);
+
+          // draw the rect on the transformed context
+          // Note: after transforming [0,0] is visually [x,y]
+          //       so the rect needs to be offset accordingly when drawn
+          ctx.arc(-width / 2, -height / 2, r, 0, 2 * Math.PI);
+          //   ctx.fillStyle = randomColor();
+
+          ctx.strokeStyle = randomColor();
+          ctx.fillStyle = randomColor();
+          ctx.fill();
+
+          // restore the context to its untranslated/unrotated state
+          ctx.restore();
+        }
+
+        function randomColor() {
+          return "#" + Math.floor(Math.random() * 0xffffff).toString(16);
+        }
+        wi;
+      }); // end $(function(){});
+    </script>
+  </head>
+
+  <body>
+    <canvas id="canvas" width="300" height="300"></canvas>
+  </body>
+</html>

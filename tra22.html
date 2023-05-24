@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <canvas
+      id="myCanvas"
+      width="500"
+      height="500"
+      style="border: 1px solid #d3d3d3"
+    >
+      Tu navegador no soporta HTML</canvas
+    >
+    <script>
+      var c = document.getElementById("myCanvas");
+      var ctx = c.getContext("2d");
+      // Establece el contexto 2d en una variable
+      // Estableciendo el color negro para rellenar después
+      // ctx.strokeStyle = "#006400";
+      // ctx.fillStyle = "#006400";
+
+      // ctx.fillStyle = "rgba(138,221,45,0)";
+      // Se crea los ladrillos
+      const bh = 20,
+        bw = 50,
+        space = 20;
+      // calculando las columnas del ladrillos
+      ctx.strokeStyle = "#006400";
+      ctx.fillStyle = "#006400";
+      const rows = Math.ceil(480 / (bh + space));
+      const columns = Math.ceil(500 / (bw + space));
+      // Dibujando ladrillos
+      for (let r = 0; r < rows; r++) {
+        // draw rows
+        for (let c = 0; c < columns; c++) {
+          if (r % 2) {
+            c == 0
+              ? // ctx.arc(c * (bw + space) - bw / 2,  r * (bh + space), r, 0, 2 * Math.PI)
+                //  ctx.beginPath();
+
+                //  ctx.arc(c * (bw + space),  r * (bh + space),  10, 0, 2 * Math.PI);
+                // ctx.fillStyle = "rgba(138,221,45,0)";
+                ctx.arc(c * (bw + space), r * (bh + space), 10, 0, 2 * Math.PI)
+              : // ctx.fillRect(c * (bw + space), r * (bh + space), bw / 2, bh)
+                //  ctx.stroke();
+                // ctx.beginPath();
+                // ctx.fillRect(c * (bw + space) - bw / 2, r * (bh + space), bw, bh);
+                // ctx.fill();
+                ctx.stroke();
+            ctx.beginPath();
+
+            ctx.arc(c * (bw + space), r * (bh + space), 10, 0, 2 * Math.PI);
+            ctx.fill();
+
+            ctx.stroke();
+
+            // : ctx.arc(
+            //     c * (bw + space) - bw / 2,
+            //     r * (bh + space),
+            //     r,
+            //     0,
+            //     2 * Math.PI
+            //   );
+          } else {
+            ctx.beginPath();
+
+            ctx.arc(c * (bw + space), r * (bh + space), 10, 0, 2 * Math.PI);
+            // ctx.fillRect(c * (bw + space), r * (bh + space), bw, bh);
+
+            ctx.fill();
+
+            ctx.stroke();
+          }
+        }
+      }
+    </script>
+  </body>
+</html>

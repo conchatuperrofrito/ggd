@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Documssent</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h3>Lucho Carlos Checcaña Alejandro</h3>
+    <h3>Luisa Nahiely Villarroel Franco</h3>
+    <canvas
+      id="myCanvas"
+      width="1000"
+      height="500"
+      style="border: 1px solid ·d3d3d3"
+    >
+    </canvas>
+    <script>
+      var lienzo = document.getElementById("myCanvas");
+      var ctx = lienzo.getContext("2d");
+      var X = lienzo.width / 2;
+      var Y = lienzo.height / 2;
+      var r = 75;
+      ctx.strokeStyle = "#006400";
+      ctx.lineWidth = 5;
+      let array = 5;
+      for (let index = 0; index < array; index++) {
+        ctx.beginPath();
+        // context.arc(X,Y,r,aPartida,aFinal,false);
+        ctx.arc(X + index * 45, Y, r, 0, 2 * Math.PI);
+        ctx.stroke();
+      }
+    </script>
+  </body>
+</html>

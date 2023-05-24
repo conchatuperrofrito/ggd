@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Documssent</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <canvas
+      id="myCanvas"
+      width="1000"
+      height="500"
+      style="border: 1px solid ·d3d3d3"
+    >
+    </canvas>
+    <script>
+      // MANDALA
+
+      var lienzo = document.getElementById("myCanvas");
+      if (lienzo && lienzo.getContext) {
+        var contexto = lienzo.getContext("2d");
+        if (contexto) {
+          var X = lienzo.width / 2;
+          var Y = lienzo.height / 2;
+          var r = 75;
+          contexto.strokeStyle = "#006400";
+          contexto.fillStyle = "#6ab150";
+          contexto.lineWidth = 5;
+          let array = 5;
+          // for (let index = 0; index < array; index++) {
+          //   contexto.beginPath();
+          //   contexto.arc(Math.PI, Y, r, 0, 2 * Math.PI);
+          //   contexto.stroke();
+          // }
+
+          // contexto.beginPath();
+          // contexto.arc(X, Y, r, 0, 2 * Math.PI);
+          // contexto.stroke();
+          // contexto.beginPath();
+
+          // contexto.arc(X + r, Y, r, 0, 2 * Math.PI);
+          // contexto.stroke();
+
+          // contexto.beginPath();
+          // contexto.arc(X + r + 50, Y, r, 0, 2 * Math.PI);
+          // contexto.stroke();
+          // contexto.beginPath();
+          // contexto.arc(X + r + 100, Y, r, 0, 2 * Math.PI);
+          // contexto.stroke();
+
+          drawRotatedRect(X, Y, 100, 20, 45);
+
+          function drawRotatedRect(x, y, width, height, degrees) {
+            ctx.beginPath();
+            // move the rotation point to the center of the rect
+            ctx.translate(x + width / 2, y + height / 2);
+            // rotate the rect
+            ctx.rotate((degrees * Math.PI) / 180);
+
+            // draw the rect on the transformed context
+            // Note: after transforming [0,0] is visually [x,y]
+            //       so the rect needs to be offset accordingly when drawn
+            ctx.rect(-width / 2, -height / 2, width, height);
+
+            ctx.fillStyle = "gold";
+            ctx.fill();
+
+            // restore the context to its untranslated/unrotated state
+            ctx.restore();
+          }
+        }
+      }
+    </script>
+  </body>
+</html>

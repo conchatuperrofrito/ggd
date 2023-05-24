@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Fractal Drawing</title>
+    <style>
+      canvas {
+        border: 3px solid black;
+      }
+    </style>
+  </head>
+  <body>
+    <canvas id="myCanvas" width="400" height="400"></canvas>
+    <script>
+      var canvas = document.getElementById("myCanvas");
+      var context = canvas.getContext("2d");
+
+      function rectangulo(x1, y1, x2, y2, opcion) {
+        context.beginPath();
+        context.strokeStyle = "#48C9B0";
+        context.lineWidth = 1;
+        context.moveTo(x1, y2);
+        context.lineTo(x2, y2);
+        context.lineTo(x2, y1);
+        context.lineTo(x1, y1);
+        context.lineTo(x1, y2);
+        context.closePath();
+        context.stroke();
+      }
+
+      function Cfractal(xi, yi, radio, delay) {
+        setTimeout(function () {
+          rectangulo(xi - radio, yi - radio, xi + radio, yi + radio);
+
+          if (radio > 5) {
+            Cfractal(xi - radio, yi - radio, radio / 2, delay);
+            Cfractal(xi - radio, yi + radio, radio / 2, delay);
+            Cfractal(xi + radio, yi - radio, radio / 2, delay);
+            Cfractal(xi + radio, yi + radio, radio / 2, delay);
+          }
+        }, delay);
+      }
+
+      canvas.addEventListener("click", function (event) {
+        var rect = canvas.getBoundingClientRect();
+        var x = event.clientX - rect.left;
+        var y = event.clientY - rect.top;
+        var radius = 100; // Adjust this value as needed
+        var delay = 500; // Adjust this value as needed
+
+        Cfractal(x, y, radius, delay);
+      });
+    </script>
+  </body>
+</html>

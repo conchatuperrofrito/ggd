@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h1>Checcaña Alejandro lucho Carlos</h1>
+    <h1>Checcaña Alejandro lucho Carlos</h1>
+    <canvas class="style" id="myCanvas">
+      <style>
+        .style {
+          width: 100wh;
+          height: 100vh;
+          border: 3px solid #1e1c1c;
+        }
+      </style>
+    </canvas>
+    <script>
+      /////////////// lines //////////////////////
+      var c = document.getElementById("myCanvas");
+      var ctx = c.getContext("2d");
+      // //color for lines
+      // ctx.strokeStyle = "rgb(200,0,0)";
+      // //line origin
+      // ctx.moveTo(20, 20);
+      // //line final
+      // ctx.lineTo(200, 200);
+      // //wdth only line
+      // ctx.lineWidth = 10;
+      // //paint
+      // ctx.stroke();
+      // /////////////// figure with lines //////////
+      // // Triángulo relleno
+      // ctx.beginPath();
+      // ctx.moveTo(25, 25);
+      // ctx.lineTo(105, 25);
+      // ctx.lineTo(25, 105);
+      // ctx.fill();
+
+      // // Triángulo contorneado
+      // ctx.beginPath();
+      // ctx.moveTo(125, 125);
+      // ctx.lineTo(125, 45);
+      // ctx.lineTo(45, 125);
+      // ctx.closePath();
+      // ctx.stroke();
+
+      // /////////////// rectangulo /////////////////
+      // color rectangle
+      ctx.fillStyle = "rgb(200,0,0)";
+      // rectangle
+      ctx.fillRect(10, 10, 55, 50);
+      // color rectangle traspatente
+      ctx.fillStyle = "rgba(0, 0, 200, 0.8)";
+      // rectangle
+      ctx.fillRect(30, 30, 55, 50);
+      //////////////////////////////////////////// PRACTIS
+
+      // gaaaaaaaaaaaaaaaaaaaaa  ejemplo 1
+      // del API Canvas 2D comienza una nueva ruta vaciando la lista de sub-rutas
+      // ctx.beginPath();
+      // //   ancho linea
+      //   ctx.lineWidth = 1;
+      // //   begim linea
+      // ctx.moveTo(1, 1);
+      // ctx.lineTo(350, 350);
+      // // segunda linea
+
+      // ctx.moveTo(288, 1);
+      // ctx.lineTo(1, 300);
+      // //   pintar
+      // ctx.stroke();
+
+      // gaaaaaaaaaaaaaaaaaaaaa  ejemplo
+      //   for (let i = 0; i <= 400; i++) {
+      //     for (let j = 0; j <= 400; j++) {
+      //       ctx.fillRect(i, i, 1, 1);
+      //       ctx.fillRect(i, 400 - i, 1, 1);
+      //     }
+      //   }
+
+      //   for (let i = 0; i <= 400; i++) {
+      //     ctx.fillRect(i, 200, 1, 1);
+      //     ctx.fillRect(200, i, 1, 1);
+      //   }
+      //   for (i = -0; i <= 400; i++) {
+      //     angle = (2 * Math.PI * i) / 1200;
+      //     ctx.fillRect(400 * angle, 400 * Math.sin(angle), 1, 1);
+      //   }
+
+      // var x = Math.sin((30 * Math.PI) / 180);
+      // var y = 0;
+
+      // ctx.beginPath();
+      // ctx.lineWidth = 1;
+      // ctx.arc(x, y, 5 * 10, 0, 2 * 10 * Math.PI);
+      // ctx.fillStyle = "red";
+      // ctx.fill();
+      // ctx.stroke();
+
+      // const canvas = document.getElementById("sine");
+      // const ctx = canvas.getContext("2d");
+      // canvas.style.backgroundColor = "rgba(0, 0, 0, 0.8)";
+
+      // const W = (canvas.width = document.body.clientWidth);
+      // const H = (canvas.height = 300);
+
+      // ctx.lineJoin = "round";
+      // ctx.strokeStyle = "skyblue";
+      // ctx.lineWidth = 1;
+
+      // ctx.beginPath();
+      // ctx.moveTo(0, H / 2);
+      // ctx.lineTo(W, H / 2);
+      // ctx.moveTo(0, H / 2);
+
+      // const point_count = 400;
+      // const w = W;
+      // const amplitude = 100;
+
+      // (function () {
+      //   var point_drawn_count = 0;
+
+      //   function step() {
+      //     if (point_drawn_count > point_count) {
+      //       return;
+      //     }
+      //     var x = (point_drawn_count * w) / point_count;
+      //     var y = H / 2 - amplitude * Math.sin((x * 2 * Math.PI) / w);
+
+      //     ctx.lineTo(x, y);
+      //     ctx.stroke();
+
+      //     point_drawn_count++;
+      //     window.requestAnimationFrame(step);
+      //   }
+
+      //   window.requestAnimationFrame(step);
+      // })();
+
+      // function drawStatically() {
+      //   ctx.moveTo(0, H / 2);
+      //   for (var i = 0; i <= point_count; i++) {
+      //     var x = (i * w) / point_count;
+      //     var y = H / 2 - amplitude * Math.sin((x * 2 * Math.PI) / w);
+
+      //     ctx.lineTo(x, y);
+      //   }
+
+      //   ctx.stroke();
+      // }
+
+      // MANDALA
+
+      // //Rosa polar elaborado por Ecler Mamani Vilca
+      // var c = document.getElementById("myCanvas");
+      // var ctx = c.getContext("2d");
+      // // Establece el contexto 2d en una variable
+      // // Estableciendo el color negro para rellenar después
+      // ctx.fillStyle = "#000000";
+      // xini = -30; //orientacion de la figura al cuadrante positivo
+      // xfin = 10; //orientacion de la figura cuadrante negativo
+      // // dis = 0.003; //dispersion de los puntos
+      // dis = 0.003; //dispersion de los puntos
+      // ancho = 400; // ancho del lienzo
+      // alto = 400; // alto del lienzo
+      // numero = 6; //cnúmero de petalos
+      // //Graficando la funcion
+      // var sum = 3;
+      // var angle;
+      // for (angle = 0; angle < 30 * Math.PI; angle += dis) {
+      //   //definimos las condiciones segun definicion de la rosa polar
+      //   if (numero % 2 != 0) {
+      //     // r = Math.sin(numero * angle);
+      //     // r = 3 * Math.sin((numero * angle) / 4);
+      //   } else {
+      //     // r = Math.sin((numero / 2) * angle);
+      //     r = 3 * Math.sin(6 * sum);
+      //   }
+      //   sum = sum + 1;
+      //   //traslacion de coordenadas polares
+      //   x_eje = r * Math.cos(angle);
+      //   y_eje = r * Math.sin(angle);
+      //   posx = (x_eje * ancho) / (xfin - xini); //posicion en x de la figura
+      //   posy = (y_eje * ancho) / (xfin - xini); //posicion en y de la figura
+      //   //graficando funcion
+      //   ctx.fillRect(ancho / 2 + posx * 6, alto / 2 - posy * 6, 1, 1);
+      // }
+
+      //figura
+      // ctx.beginPath();
+      // ctx.strokeStyle = "blue";
+      // ctx.moveTo(20, 60);
+      // ctx.lineTo(40, 40);
+      // ctx.lineTo(40, 50);
+      // ctx.lineTo(50, 50);
+      // ctx.lineTo(50, 40);
+      // ctx.lineTo(60, 40);
+      // ctx.lineTo(60, 30);
+      // ctx.lineTo(50, 30);
+      // //
+      // ctx.lineTo(70, 10);
+      // ctx.lineTo(90, 30);
+      // ctx.lineTo(80, 30);
+      // ctx.lineTo(80, 40);
+      // ctx.lineTo(90, 40);
+      // ctx.lineTo(90, 50);
+      // ctx.lineTo(100, 50);
+      // ctx.lineTo(100, 40);
+      // ctx.lineTo(120, 60);
+      // ctx.lineTo(100, 80);
+      // ctx.lineTo(100, 70);
+      // ctx.lineTo(90, 70);
+      // //
+      // ctx.lineTo(90, 80);
+      // ctx.lineTo(80, 80);
+      // ctx.lineTo(80, 90);
+      // ctx.lineTo(90, 90);
+      // ctx.lineTo(70, 110);
+      // ctx.lineTo(50, 90);
+      // ctx.lineTo(60, 90);
+      // ctx.lineTo(60, 80);
+      // ctx.lineTo(50, 80);
+      // ctx.lineTo(50, 70);
+      // ctx.lineTo(40, 70);
+      // ctx.lineTo(40, 80);
+
+      // ctx.fill();
+
+      //
+
+      contexto.strokeStyle = "#006400";
+      contexto.fillStyle = "#6ab150";
+      contexto.lineWidth = 5;
+      contexto.arc(X, Y, r, 0, 2 * Math.PI);
+      contexto.fill();
+      contexto.stroke();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Circulos LUCHO CARLOS</title>
+    <style>
+      canvas {
+        background-color: black;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>lucho Carlos Checcaña Alejandro</h1>
+    <canvas
+      id="canvas"
+      width="500"
+      height="400"
+      style="border: 1px solid black"
+      background-color="#000000"
+    >
+    </canvas>
+    <p></p>
+    <p></p>
+    <a
+      id="Download"
+      download="myImage.png"
+      href=""
+      onclick="download_img(this);"
+      >Descargar imagen..></a
+    >
+
+    <script>
+      let canvas = document.getElementById("canvas");
+      let ctx = canvas.getContext("2d");
+      let radius = 50;
+      let centerX = canvas.width / 2;
+      let centerY = canvas.height / 2;
+      let circleCount = 20;
+
+      for (let i = 0; i < circleCount; i++) {
+        let angle = (i / circleCount) * 2 * Math.PI;
+        let x = centerX + Math.cos(angle) * radius;
+        console.log("ejex::" + x);
+        console.log("ejex::" + Math.cos(angle));
+        let y = centerY + Math.sin(angle) * radius;
+        console.log("ejey::" + y);
+        ctx.strokeStyle = randomColor();
+        //   ctx.fill();
+        ctx.beginPath();
+        ctx.arc(x, y, radius, 0, 2 * Math.PI);
+        ctx.stroke();
+      }
+      function randomColor() {
+        return "#" + Math.floor(Math.random() * 0xffffff).toString(16);
+      }
+      ctx.stroke();
+      //Guarda imagen generada
+      download_img = function (el) {
+        // envia la imagen para almacenar
+        var imageURI = c.toDataURL("image/jpg");
+        el.href = imageURI;
+      };
+    </script>
+  </body>
+</html>

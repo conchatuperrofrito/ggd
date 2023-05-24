@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h3>Lucho Carlos Checcaña Alejandro</h3>
+    <h3>Luisa Nahiely Villarroel Franco</h3>
+    <canvas id="myCanvas"></canvas>
+    <style>
+      canvas {
+        border: 1px solid black;
+        /* height: 100vh; */
+        /* width: auto; */
+      }
+    </style>
+    <script>
+      var canvas = document.getElementById("myCanvas");
+      var ctx = canvas.getContext("2d");
+      ctx.font = "16px Arial";
+
+      //   canvas.addEventListener("mousemove", function (e) {
+
+      canvas.addEventListener("click", function (e) {
+        var cRect = canvas.getBoundingClientRect(); // Gets the CSS positions along with width/height
+        var canvasX = Math.round(e.clientX - cRect.left); // Subtract the 'left' of the canvas from the X/Y
+        var canvasY = Math.round(e.clientY - cRect.top); // positions to get make (0,0) the top left of the
+        x = ctx.clearRect(0, 0, canvas.width, canvas.height); // canvas
+        ctx.fillText("X: " + canvasX + ", Y: " + canvasY, 10, 20);
+        arry1(canvasX, canvasY);
+        setTimeout(function () {
+          location.reload();
+        }, 1500);
+        console.log("setTimeout() Ejemplo...");
+      });
+      var arr1 = [];
+      function arry1(v, y) {
+        arr1.push(v, y);
+        console.log(arr1);
+        ctx.beginPath();
+        ctx.moveTo(arr1[0], arr1[1]);
+        ctx.lineTo(arr1[2], arr1[3]);
+        ctx.strokeStyle = "black";
+        ctx.stroke();
+      }
+    </script>
+  </body>
+</html>

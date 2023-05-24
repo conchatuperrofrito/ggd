@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Yoongi</h1>
+    <canvas class="style" id="myCanvas">
+      <style>
+        .style {
+          width: 90wh;
+          height: 90vh;
+          border: 3px solid #be0d77;
+        }
+      </style>
+    </canvas>
+    <script>
+      var c = document.getElementById("myCanvas");
+      var ctx = c.getContext("2d");
+      // Establece el contexto 2d en una variable
+      // Estableciendo el color negro para rellenar después
+      ctx.fillStyle = "#450012";
+      // Se crea los ladrillos
+      const bh = 20,
+        bw = 50,
+        space = 5;
+      // calculando las columnas del ladrillos
+      const rows = Math.ceil(500 / (bh + space));
+      const columns = Math.ceil(500 / (bw + space));
+      // Dibujo  con círculos
+      for (let r = 0; r < rows; r++) {
+        for (let c = 0; c < columns; c++) {
+          const x = c * (bw + space) + bw / 2;
+          const y = r * (bh + space) + bh / 2;
+          const radius = Math.min(bw, bh) / 2;
+
+          ctx.beginPath();
+          ctx.arc(x, y, radius, 0, 2 * Math.PI);
+          ctx.fill();
+        }
+      }
+    </script>
+  </body>
+</html>
